@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JETCar — Калькулятор автокредита</title>
+
+    <style>
+        :root {
+            --green: #18a957;
+            --green-dark: #128544;
+            --green-light: #e9f8ef;
+
+            --black: #111111;
+            --gray: #6f7673;
+            --gray-light: #f5f7f6;
+            --border: #e2e7e4;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f7f9f8;
+            color: var(--black);
+
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+
+            padding: 40px 20px 60px;
+        }
+
+        .calculator {
+            width: 100%;
+            max-width: 620px;
+        }
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+            text-align: center;
+
+            font-size: 52px;
+            line-height: 1;
+
+            font-weight: 900;
+            letter-spacing: -3px;
+
+            margin-bottom: 42px;
+
+            color: var(--black);
+        }
+
+        .logo .jet {
+            color: var(--green);
+        }
+
+        .logo .car {
+            color: var(--black);
+        }
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .main-card {
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 28px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 12px 40px rgba(20, 50, 35, 0.06);
+        }
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .title {
+            font-size: 15px;
+            font-weight: 600;
+
+            color: var(--gray);
+
+            margin-bottom: 10px;
+
+            text-align: center;
+        }
+
+        /* =========================
+           AMOUNT
+        ========================= */
+
+        .amount {
+            text-align: center;
+
+            font-size: 42px;
+            line-height: 1.1;
+
+            font-weight: 800;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 26px;
+        }
+
+        /* =========================
+           MANUAL INPUT
+        ========================= */
+
+        .input-wrapper {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            width: 100%;
+
+            height: 58px;
+
+            background: var(--gray-light);
+
+            border: 2px solid transparent;
+
+            border-radius: 15px;
+
+            padding: 0 18px;
+
+            transition:
+                border-color 0.2s,
+                background 0.2s;
+        }
+
+        .input-wrapper:focus-within {
+            border-color: var(--green);
+            background: var(--white);
+        }
+
+        .input {
+            width: 100%;
+
+            border: none;
+            outline: none;
+
+            background: transparent;
+
+            font-size: 20px;
+            font-weight: 700;
+
+            color: var(--black);
+
+            min-width: 0;
+        }
+
+        .currency {
+            flex-shrink: 0;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            color: var(--gray);
+
+            margin-left: 8px;
+        }
+
+        /* =========================
+           SLIDER
+        ========================= */
+
+        .slider-area {
+            margin-top: 24px;
+            margin-bottom: 34px;
+        }
+
+        .slider {
+            appearance: none;
+            -webkit-appearance: none;
+
+            width: 100%;
+
+            height: 7px;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    to right,
+                    var(--green) 0%,
+                    var(--green) 19%,
+                    #dce4df 19%,
+                    #dce4df 100%
+                );
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
+
+            width: 25px;
+            height: 25px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            border: 4px solid var(--white);
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.18);
+
+            cursor: grab;
+        }
+
+        .slider::-webkit-slider-thumb:active {
+            cursor: grabbing;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            border: 4px solid var(--white);
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.18);
+
+            cursor: grab;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 9px;
+
+            color: var(--gray);
+
+            font-size: 12px;
+        }
+
+        /* =========================
+           PAYMENT SECTION
+        ========================= */
+
+        .payment-title {
+            font-size: 18px;
+            font-weight: 800;
+
+            margin-bottom: 14px;
+        }
+
+        .payment-list {
+            display: flex;
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        /* =========================
+           TERM CARD
+        ========================= */
+
+        .term-card {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            min-height: 64px;
+
+            padding: 0 18px;
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            transition:
+                border-color 0.15s,
+                background 0.15s,
+                transform 0.15s;
+        }
+
+        .term-card:hover {
+            border-color: #c9d7ce;
+            background: #fbfdfc;
+        }
+
+        .term {
+            font-size: 16px;
+
+            color: var(--black);
+        }
+
+        .payment {
+            font-size: 17px;
+
+            font-weight: 800;
+
+            color: var(--green-dark);
+
+            text-align: right;
+
+            white-space: nowrap;
+        }
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .info {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin-top: 20px;
+
+            color: var(--gray);
+
+            font-size: 12px;
+
+            text-align: center;
+        }
+
+        .info-dot {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding: 22px 12px 40px;
+            }
+
+            .calculator {
+                max-width: 100%;
+            }
+
+            .logo {
+                font-size: 42px;
+
+                letter-spacing: -2.5px;
+
+                margin-bottom: 30px;
+            }
+
+            .main-card {
+                border-radius: 22px;
+
+                padding: 22px 16px;
+            }
+
+            .amount {
+                font-size: 34px;
+
+                letter-spacing: -1px;
+
+                margin-bottom: 22px;
+            }
+
+            .input-wrapper {
+                height: 56px;
+
+                padding: 0 15px;
+            }
+
+            .input {
+                font-size: 18px;
+            }
+
+            .currency {
+                font-size: 16px;
+            }
+
+            .slider-area {
+                margin-top: 22px;
+
+                margin-bottom: 28px;
+            }
+
+            .payment-title {
+                font-size: 17px;
+
+                margin-bottom: 12px;
+            }
+
+            .term-card {
+                min-height: 58px;
+
+                padding: 0 14px;
+
+                border-radius: 12px;
+            }
+
+            .term {
+                font-size: 15px;
+            }
+
+            .payment {
+                font-size: 15px;
+            }
+        }
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 360px) {
+
+            .page {
+                padding: 16px 9px 30px;
+            }
+
+            .main-card {
+                padding: 19px 12px;
+            }
+
+            .logo {
+                font-size: 38px;
+            }
+
+            .amount {
+                font-size: 30px;
+            }
+
+            .term-card {
+                padding: 0 12px;
+            }
+
+            .term,
+            .payment {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+    <main class="calculator">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+            <span class="jet">JET</span><span class="car">Car</span>
+        </div>
+
+
+        <!-- MAIN CARD -->
+
+        <section class="main-card">
+
+            <!-- TITLE -->
+
+            <div class="title">
+                Сумма кредита
+            </div>
+
+
+            <!-- LARGE AMOUNT -->
+
+            <div
+                class="amount"
+                id="amount"
+            >
+                6 000 000 ₸
+            </div>
+
+
+            <!-- MANUAL INPUT -->
+
+            <div class="input-wrapper">
+
+                <input
+                    class="input"
+                    id="inputAmount"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    value="6000000"
+                    aria-label="Сумма кредита"
+                >
+
+                <span class="currency">
+                    ₸
+                </span>
+
+            </div>
+
+
+            <!-- SLIDER -->
+
+            <div class="slider-area">
+
+                <input
+                    class="slider"
+                    id="slider"
+                    type="range"
+                    min="500000"
+                    max="30000000"
+                    step="100000"
+                    value="6000000"
+                    aria-label="Выберите сумму кредита"
+                >
+
+                <div class="slider-labels">
+
+                    <span>
+                        500 000 ₸
+                    </span>
+
+                    <span>
+                        30 000 000 ₸
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="payment-title">
+                Ежемесячный платёж
+            </div>
+
+
+            <div
+                class="payment-list"
+                id="paymentList"
+            >
+            </div>
+
+
+            <!-- INFO -->
+
+            <div class="info">
+
+                <span class="info-dot"></span>
+
+                Расчёт по ставке 3,2% в месяц
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+    /* ==========================================
+       JETCar Calculator
+       ========================================== */
+
+
+    const slider =
+        document.getElementById("slider");
+
+    const inputAmount =
+        document.getElementById("inputAmount");
+
+    const amount =
+        document.getElementById("amount");
+
+    const paymentList =
+        document.getElementById("paymentList");
+
+
+    /*
+        Сроки кредита
+    */
+
+    const terms = [
+        24,
+        36,
+        48,
+        60,
+        72,
+        84
+    ];
+
+
+    /*
+        Месячная процентная ставка
+
+        3,2% = 0.032
+    */
+
+    const monthlyRate = 0.032;
+
+
+    /*
+        Минимальная сумма
+    */
+
+    const MIN_AMOUNT = 500000;
+
+
+    /*
+        Максимальная сумма
+    */
+
+    const MAX_AMOUNT = 30000000;
+
+
+    /*
+        Форматирование денег
+    */
+
+    function formatMoney(number) {
+
+        return Math.round(number)
+            .toLocaleString("ru-RU")
+            .replace(/\u00A0/g, " ")
+            + " ₸";
+
+    }
+
+
+    /*
+        Получаем число из текста
+
+        Например:
+
+        "6 000 000"
+        превращается в:
+
+        6000000
+    */
+
+    function getNumber(value) {
+
+        return Number(
+            String(value)
+                .replace(/\D/g, "")
+        ) || 0;
+
+    }
+
+
+    /*
+        Формула ПЛТ
+
+        ПЛТ(3,2%; срок; сумма)
+    */
+
+    function calculatePayment(
+        principal,
+        months
+    ) {
+
+        const r = monthlyRate;
+
+        return principal *
+            r *
+            Math.pow(
+                1 + r,
+                months
+            ) /
+            (
+                Math.pow(
+                    1 + r,
+                    months
+                ) - 1
+            );
+
+    }
+
+
+    /*
+        Обновление внешнего вида ползунка
+    */
+
+    function updateSliderBackground(
+        value
+    ) {
+
+        const min =
+            Number(slider.min);
+
+        const max =
+            Number(slider.max);
+
+        const percentage =
+            ((value - min) /
+            (max - min)) * 100;
+
+
+        slider.style.background =
+            `linear-gradient(
+                to right,
+                var(--green) 0%,
+                var(--green) ${percentage}%,
+                #dce4df ${percentage}%,
+                #dce4df 100%
+            )`;
+
+    }
+
+
+    /*
+        Создание списка платежей
+    */
+
+    function renderPayments(
+        sum
+    ) {
+
+        paymentList.innerHTML = "";
+
+
+        terms.forEach(
+            function(months) {
+
+                const payment =
+                    calculatePayment(
+                        sum,
+                        months
+                    );
+
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+                card.className =
+                    "term-card";
+
+
+                const term =
+                    document.createElement(
+                        "div"
+                    );
+
+                term.className =
+                    "term";
+
+
+                if (months === 24) {
+
+                    term.textContent =
+                        "24 месяца";
+
+                } else {
+
+                    term.textContent =
+                        months +
+                        " месяцев";
+
+                }
+
+
+                const paymentElement =
+                    document.createElement(
+                        "div"
+                    );
+
+                paymentElement.className =
+                    "payment";
+
+
+                paymentElement.textContent =
+                    formatMoney(
+                        payment
+                    );
+
+
+                card.appendChild(term);
+
+                card.appendChild(
+                    paymentElement
+                );
+
+
+                paymentList.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    }
+
+
+    /*
+        Основная функция обновления
+    */
+
+    function updateCalculator(
+        value
+    ) {
+
+        let sum =
+            Number(value);
+
+
+        /*
+            Ограничиваем значение
+        */
+
+        if (
+            !Number.isFinite(sum) ||
+            sum <= 0
+        ) {
+
+            sum =
+                MIN_AMOUNT;
+
+        }
+
+
+        if (sum < MIN_AMOUNT) {
+
+            sum =
+                MIN_AMOUNT;
+
+        }
+
+
+        if (sum > MAX_AMOUNT) {
+
+            sum =
+                MAX_AMOUNT;
+
+        }
+
+
+        /*
+            Обновляем ползунок
+        */
+
+        slider.value =
+            sum;
+
+
+        /*
+            Обновляем большое число
+        */
+
+        amount.textContent =
+            formatMoney(sum);
+
+
+        /*
+            Обновляем фон ползунка
+        */
+
+        updateSliderBackground(
+            sum
+        );
+
+
+        /*
+            Пересчитываем платежи
+        */
+
+        renderPayments(
+            sum
+        );
+
+    }
+
+
+    /*
+        ==========================================
+        ПОЛЗУНОК
+        ==========================================
+    */
+
+    slider.addEventListener(
+        "input",
+        function() {
+
+            const value =
+                Number(
+                    slider.value
+                );
+
+
+            /*
+                Обновляем поле ввода
+            */
+
+            inputAmount.value =
+                value;
+
+
+            /*
+                Обновляем калькулятор
+            */
+
+            updateCalculator(
+                value
+            );
+
+        }
+    );
+
+
+    /*
+        ==========================================
+        РУЧНОЙ ВВОД
+        ==========================================
+    */
+
+    inputAmount.addEventListener(
+        "input",
+        function() {
+
+            /*
+                Получаем только цифры
+            */
+
+            const value =
+                getNumber(
+                    inputAmount.value
+                );
+
+
+            /*
+                Пока пользователь печатает,
+                не мешаем ему форматированием.
+
+                Но калькулятор пересчитываем
+                сразу.
+            */
+
+            if (
+                value >= MIN_AMOUNT &&
+                value <= MAX_AMOUNT
+            ) {
+
+                slider.value =
+                    value;
+
+
+                updateCalculator(
+                    value
+                );
+
+            }
+
+        }
+    );
+
+
+    /*
+        ==========================================
+        ПОКИНУЛИ ПОЛЕ
+        ==========================================
+    */
+
+    inputAmount.addEventListener(
+        "blur",
+        function() {
+
+            let value =
+                getNumber(
+                    inputAmount.value
+                );
+
+
+            if (
+                value < MIN_AMOUNT
+            ) {
+
+                value =
+                    MIN_AMOUNT;
+
+            }
+
+
+            if (
+                value > MAX_AMOUNT
+            ) {
+
+                value =
+                    MAX_AMOUNT;
+
+            }
+
+
+            /*
+                Форматируем поле
+            */
+
+            inputAmount.value =
+                value;
+
+
+            updateCalculator(
+                value
+            );
+
+        }
+    );
+
+
+    /*
+        ==========================================
+        ПЕРВОНАЧАЛЬНЫЙ ЗАПУСК
+        ==========================================
+    */
+
+    updateCalculator(
+        6000000
+    );
+
+</script>
+
+</body>
+</html>
