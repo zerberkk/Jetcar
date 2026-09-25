@@ -7,6 +7,7 @@
 <title>JETCar — Калькулятор</title>
 
 <style>
+
     :root {
         --green: #18a957;
         --green-dark: #118344;
@@ -22,13 +23,20 @@
         --white: #ffffff;
     }
 
+
     * {
         box-sizing: border-box;
     }
 
+
     body {
         margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
+
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+
         color: var(--text);
 
         background:
@@ -42,18 +50,25 @@
         min-height: 100vh;
     }
 
+
     /* =========================
        LOGO
     ========================= */
 
     .logo {
         text-align: center;
+
         padding-top: 35px;
+
         font-size: 34px;
+
         font-weight: 800;
+
         letter-spacing: -1.5px;
+
         color: var(--green);
     }
+
 
     /* =========================
        HERO
@@ -61,83 +76,173 @@
 
     .hero {
         text-align: center;
+
         padding: 35px 20px 25px;
     }
 
+
     .hero h1 {
         margin: 0;
+
         font-size: 42px;
+
         line-height: 1.1;
+
         font-weight: 800;
+
         color: var(--black);
+
         letter-spacing: -1.5px;
     }
 
+
     .hero p {
         margin: 14px 0 0;
+
         color: var(--gray);
+
         font-size: 17px;
     }
+
 
     /* =========================
        CALCULATOR
     ========================= */
 
     .calculator {
-        width: min(850px, calc(100% - 30px));
+        width: min(
+            850px,
+            calc(100% - 30px)
+        );
+
         margin: 0 auto 50px;
 
-        background: rgba(255, 255, 255, 0.92);
+        background:
+            rgba(255, 255, 255, 0.92);
 
-        border: 1px solid rgba(225, 230, 227, 0.9);
+        border:
+            1px solid rgba(
+                225,
+                230,
+                227,
+                0.9
+            );
 
         border-radius: 28px;
 
         padding: 32px;
 
         box-shadow:
-            0 20px 60px rgba(25, 70, 45, 0.08),
-            0 5px 20px rgba(25, 70, 45, 0.04);
+            0 20px 60px
+            rgba(25, 70, 45, 0.08),
+
+            0 5px 20px
+            rgba(25, 70, 45, 0.04);
     }
 
+
     /* =========================
-       AMOUNT
+       AMOUNT SECTION
     ========================= */
 
     .section-title {
         font-size: 15px;
+
         color: var(--gray);
+
         margin-bottom: 10px;
+
         font-weight: 600;
     }
 
+
     .amount {
         display: flex;
+
         align-items: center;
+
         gap: 8px;
+
         margin-bottom: 18px;
     }
 
+
     .amount-input {
         border: none;
+
         outline: none;
 
         background: transparent;
 
         font-size: 38px;
+
         font-weight: 800;
 
         width: 100%;
 
         color: var(--black);
+
         padding: 0;
     }
 
+
     .amount-currency {
         font-size: 26px;
+
         font-weight: 700;
+
         color: var(--gray);
     }
+
+
+    /* =========================
+       GPS
+    ========================= */
+
+    .gps-box {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 15px;
+
+        margin-top: -3px;
+
+        margin-bottom: 20px;
+
+        padding: 13px 16px;
+
+        background:
+            var(--green-softer);
+
+        border:
+            1px solid #dceee3;
+
+        border-radius: 12px;
+    }
+
+
+    .gps-label {
+        font-size: 14px;
+
+        color: var(--gray);
+
+        font-weight: 600;
+    }
+
+
+    .gps-value {
+        font-size: 17px;
+
+        font-weight: 800;
+
+        color: var(--green-dark);
+
+        white-space: nowrap;
+    }
+
 
     /* =========================
        SLIDER
@@ -145,9 +250,11 @@
 
     .slider {
         width: 100%;
+
         height: 6px;
 
         appearance: none;
+
         -webkit-appearance: none;
 
         background: #dce6df;
@@ -159,11 +266,14 @@
         margin-bottom: 35px;
     }
 
+
     .slider::-webkit-slider-thumb {
         appearance: none;
+
         -webkit-appearance: none;
 
         width: 22px;
+
         height: 22px;
 
         border-radius: 50%;
@@ -173,14 +283,18 @@
         cursor: pointer;
 
         box-shadow:
-            0 3px 10px rgba(24, 169, 87, 0.3);
+            0 3px 10px
+            rgba(24, 169, 87, 0.3);
     }
+
 
     .slider::-moz-range-thumb {
         width: 22px;
+
         height: 22px;
 
         border: none;
+
         border-radius: 50%;
 
         background: var(--green);
@@ -188,31 +302,36 @@
         cursor: pointer;
 
         box-shadow:
-            0 3px 10px rgba(24, 169, 87, 0.3);
+            0 3px 10px
+            rgba(24, 169, 87, 0.3);
     }
 
+
     /* =========================
-       PAYMENT LIST
+       PAYMENT
     ========================= */
 
     .payment-title {
         font-size: 18px;
+
         font-weight: 700;
 
         margin-bottom: 16px;
     }
 
-    /*
-       2 КОЛОНКИ × 3 СТРОКИ
-    */
 
     .payment-list {
         display: grid;
 
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
 
         gap: 14px;
     }
+
 
     /* =========================
        TERM CARD
@@ -221,9 +340,11 @@
     .term-card {
         position: relative;
 
-        background: var(--white);
+        background:
+            var(--white);
 
-        border: 1px solid var(--border);
+        border:
+            1px solid var(--border);
 
         border-radius: 18px;
 
@@ -238,30 +359,37 @@
             background 0.3s ease;
     }
 
+
     .term-card:hover {
         border-color: #bcd8c7;
 
-        transform: translateY(-2px);
+        transform:
+            translateY(-2px);
 
         box-shadow:
-            0 8px 25px rgba(25, 70, 45, 0.08);
+            0 8px 25px
+            rgba(25, 70, 45, 0.08);
     }
 
-    /* Активное окно */
 
     .term-card.active {
-        border-color: var(--green);
+        border-color:
+            var(--green);
 
-        background: var(--green-softer);
+        background:
+            var(--green-softer);
 
         box-shadow:
-            0 10px 30px rgba(24, 169, 87, 0.13);
+            0 10px 30px
+            rgba(24, 169, 87, 0.13);
 
-        transform: scale(1.015);
+        transform:
+            scale(1.015);
     }
 
+
     /* =========================
-       ОСНОВНАЯ ЧАСТЬ КАРТОЧКИ
+       TERM MAIN
     ========================= */
 
     .term-main {
@@ -278,90 +406,59 @@
         gap: 15px;
     }
 
+
     .term-left {
         display: flex;
+
         align-items: center;
 
         gap: 13px;
     }
 
-    /* Кружок выбора */
-
-    .term-radio {
-        width: 22px;
-        height: 22px;
-
-        border-radius: 50%;
-
-        border: 2px solid #cfd7d2;
-
-        flex-shrink: 0;
-
-        position: relative;
-
-        transition:
-            border-color 0.25s ease,
-            background 0.25s ease;
-    }
-
-    .term-card.active .term-radio {
-        border-color: var(--green);
-    }
-
-    .term-card.active .term-radio::after {
-        content: "";
-
-        position: absolute;
-
-        width: 10px;
-        height: 10px;
-
-        border-radius: 50%;
-
-        background: var(--green);
-
-        left: 50%;
-        top: 50%;
-
-        transform: translate(-50%, -50%);
-    }
 
     .term {
         font-size: 18px;
+
         font-weight: 700;
     }
 
+
     .term-label {
         color: var(--gray);
+
         font-size: 14px;
+
         margin-top: 3px;
     }
+
 
     .monthly {
         text-align: right;
+
         white-space: nowrap;
     }
 
+
     .monthly-value {
         font-size: 21px;
+
         font-weight: 800;
 
         color: var(--black);
-
-        transition:
-            color 0.25s ease;
     }
+
 
     .monthly-label {
         font-size: 13px;
+
         color: var(--gray);
 
         margin-top: 3px;
     }
 
+
     /* =========================
        OVERPAYMENT
-       ПЛАВНОЕ ОТКРЫТИЕ
     ========================= */
 
     .overpayment-wrapper {
@@ -372,33 +469,58 @@
         opacity: 0;
 
         transition:
-            grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+            grid-template-rows
+            0.45s
+            cubic-bezier(
+                0.4,
+                0,
+                0.2,
+                1
+            ),
+
             opacity 0.3s ease;
     }
 
-    .term-card.active .overpayment-wrapper {
+
+    .term-card.active
+    .overpayment-wrapper {
         grid-template-rows: 1fr;
 
         opacity: 1;
     }
 
+
     .overpayment-hidden {
         overflow: hidden;
     }
 
-    .overpayment {
-        border-top: 1px solid #d9e9df;
 
-        padding: 0 20px;
+    .overpayment {
+        border-top:
+            1px solid #d9e9df;
+
+        padding:
+            0 20px;
 
         transition:
-            padding 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            padding
+            0.45s
+            cubic-bezier(
+                0.4,
+                0,
+                0.2,
+                1
+            );
     }
 
-    .term-card.active .overpayment {
+
+    .term-card.active
+    .overpayment {
         padding-top: 15px;
+
         padding-bottom: 18px;
     }
+
 
     .overpayment-inner {
         display: flex;
@@ -410,6 +532,7 @@
         gap: 15px;
     }
 
+
     .overpayment-title {
         font-size: 14px;
 
@@ -417,6 +540,7 @@
 
         font-weight: 500;
     }
+
 
     .overpayment-value {
         font-size: 18px;
@@ -428,6 +552,7 @@
         white-space: nowrap;
     }
 
+
     /* =========================
        DOWN PAYMENT
     ========================= */
@@ -437,8 +562,10 @@
 
         padding-top: 25px;
 
-        border-top: 1px solid var(--border);
+        border-top:
+            1px solid var(--border);
     }
+
 
     .pv-toggle {
         display: flex;
@@ -456,15 +583,19 @@
         font-weight: 600;
     }
 
+
     .pv-toggle input {
         display: none;
     }
 
+
     .custom-checkbox {
         width: 22px;
+
         height: 22px;
 
-        border: 2px solid #cfd7d2;
+        border:
+            2px solid #cfd7d2;
 
         border-radius: 6px;
 
@@ -477,13 +608,21 @@
             border-color 0.2s ease;
     }
 
-    .pv-toggle input:checked + .custom-checkbox {
-        background: var(--green);
 
-        border-color: var(--green);
+    .pv-toggle
+    input:checked
+    + .custom-checkbox {
+        background:
+            var(--green);
+
+        border-color:
+            var(--green);
     }
 
-    .pv-toggle input:checked + .custom-checkbox::after {
+
+    .pv-toggle
+    input:checked
+    + .custom-checkbox::after {
         content: "✓";
 
         position: absolute;
@@ -495,10 +634,16 @@
         font-weight: 800;
 
         left: 50%;
+
         top: 50%;
 
-        transform: translate(-50%, -52%);
+        transform:
+            translate(
+                -50%,
+                -52%
+            );
     }
+
 
     /* =========================
        PV BOX
@@ -511,16 +656,20 @@
 
         padding: 18px;
 
-        background: var(--green-softer);
+        background:
+            var(--green-softer);
 
-        border: 1px solid #d9eee1;
+        border:
+            1px solid #d9eee1;
 
         border-radius: 16px;
     }
 
+
     .pv-box.visible {
         display: block;
     }
+
 
     .pv-label {
         font-size: 14px;
@@ -530,14 +679,17 @@
         margin-bottom: 8px;
     }
 
+
     .pv-input {
         width: 100%;
 
-        padding: 13px 15px;
+        padding:
+            13px 15px;
+
+        border:
+            1px solid var(--border);
 
         border-radius: 12px;
-
-        border: 1px solid var(--border);
 
         background: white;
 
@@ -548,9 +700,12 @@
         outline: none;
     }
 
+
     .pv-input:focus {
-        border-color: var(--green);
+        border-color:
+            var(--green);
     }
+
 
     /* =========================
        LOAN DETAILS
@@ -563,12 +718,15 @@
 
         padding-top: 15px;
 
-        border-top: 1px solid #d9eee1;
+        border-top:
+            1px solid #d9eee1;
     }
+
 
     .loan-details.visible {
         display: block;
     }
+
 
     .loan-row {
         display: flex;
@@ -582,17 +740,21 @@
         margin-bottom: 9px;
     }
 
+
     .loan-row:last-child {
         margin-bottom: 0;
     }
+
 
     .loan-row span:first-child {
         color: var(--gray);
     }
 
+
     .loan-row span:last-child {
         font-weight: 700;
     }
+
 
     /* =========================
        MOBILE
@@ -606,13 +768,16 @@
             font-size: 30px;
         }
 
+
         .hero {
             padding-top: 28px;
         }
 
+
         .hero h1 {
             font-size: 31px;
         }
+
 
         .hero p {
             font-size: 15px;
@@ -620,25 +785,42 @@
             line-height: 1.45;
         }
 
+
         .calculator {
-            width: calc(100% - 20px);
+            width:
+                calc(100% - 20px);
 
             padding: 20px;
 
             border-radius: 22px;
         }
 
+
         .amount-input {
             font-size: 30px;
         }
+
 
         .amount-currency {
             font-size: 21px;
         }
 
-        /*
-           На телефоне делаем 1 колонку
-        */
+
+        .gps-box {
+            padding:
+                12px 14px;
+        }
+
+
+        .gps-label {
+            font-size: 13px;
+        }
+
+
+        .gps-value {
+            font-size: 15px;
+        }
+
 
         .payment-list {
             grid-template-columns: 1fr;
@@ -646,9 +828,11 @@
             gap: 12px;
         }
 
+
         .term-card.active {
             transform: none;
         }
+
 
         .term-main {
             min-height: 100px;
@@ -656,28 +840,37 @@
             padding: 17px;
         }
 
+
         .term {
             font-size: 16px;
         }
+
 
         .monthly-value {
             font-size: 18px;
         }
 
+
         .overpayment {
             padding-left: 17px;
+
             padding-right: 17px;
         }
 
-        .term-card.active .overpayment {
+
+        .term-card.active
+        .overpayment {
             padding-top: 14px;
+
             padding-bottom: 16px;
         }
+
 
         .overpayment-value {
             font-size: 16px;
         }
     }
+
 
     @media (max-width: 400px) {
 
@@ -685,37 +878,37 @@
             font-size: 16px;
         }
 
+
         .term-main {
             gap: 8px;
         }
+
 
         .term-left {
             gap: 9px;
         }
 
-        .term-radio {
-            width: 19px;
-            height: 19px;
-        }
-
-        .term-card.active .term-radio::after {
-            width: 8px;
-            height: 8px;
-        }
     }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- LOGO -->
+
+<!-- =========================
+     LOGO
+========================= -->
 
 <div class="logo">
     JETCar
 </div>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -730,15 +923,21 @@
 </section>
 
 
-<!-- CALCULATOR -->
+<!-- =========================
+     CALCULATOR
+========================= -->
 
 <div class="calculator">
 
-    <!-- AMOUNT -->
+
+    <!-- =========================
+         CAR PRICE
+    ========================= -->
 
     <div class="section-title">
         Стоимость автомобиля
     </div>
+
 
     <div class="amount">
 
@@ -757,7 +956,29 @@
     </div>
 
 
-    <!-- SLIDER -->
+    <!-- =========================
+         GPS
+    ========================= -->
+
+    <div class="gps-box">
+
+        <div class="gps-label">
+            Сумма ГПС
+        </div>
+
+        <div
+            id="gpsValue"
+            class="gps-value"
+        >
+            300 000 ₸
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SLIDER
+    ========================= -->
 
     <input
         id="amountSlider"
@@ -770,11 +991,14 @@
     >
 
 
-    <!-- PAYMENT -->
+    <!-- =========================
+         PAYMENT
+    ========================= -->
 
     <div class="payment-title">
         Выберите срок кредита
     </div>
+
 
     <div
         id="paymentList"
@@ -782,9 +1006,12 @@
     ></div>
 
 
-    <!-- DOWN PAYMENT -->
+    <!-- =========================
+         DOWN PAYMENT
+    ========================= -->
 
     <div class="down-payment">
+
 
         <label class="pv-toggle">
 
@@ -793,7 +1020,9 @@
                 id="pvCheckbox"
             >
 
-            <span class="custom-checkbox"></span>
+            <span
+                class="custom-checkbox"
+            ></span>
 
             <span>
                 С первоначальным взносом
@@ -807,9 +1036,11 @@
             class="pv-box"
         >
 
+
             <div class="pv-label">
                 Первоначальный взнос
             </div>
+
 
             <input
                 id="pvInput"
@@ -824,6 +1055,7 @@
                 id="loanDetails"
                 class="loan-details"
             >
+
 
                 <div class="loan-row">
 
@@ -850,16 +1082,21 @@
 
                 </div>
 
+
             </div>
+
 
         </div>
 
+
     </div>
+
 
 </div>
 
 
 <script>
+
 
     /* =========================
        НАСТРОЙКИ
@@ -874,17 +1111,19 @@
         84
     ];
 
+
     const monthlyRate = 0.032;
 
+
     const MIN_AMOUNT = 500000;
+
 
     const MAX_AMOUNT = 30000000;
 
 
     /*
-       Выбранный срок
-
-       По умолчанию ничего не раскрыто.
+       Никакой карточки
+       по умолчанию не открываем.
     */
 
     let selectedTerm = null;
@@ -895,31 +1134,63 @@
     ========================= */
 
     const amountInput =
-        document.getElementById("amountInput");
+        document.getElementById(
+            "amountInput"
+        );
+
 
     const amountSlider =
-        document.getElementById("amountSlider");
+        document.getElementById(
+            "amountSlider"
+        );
+
 
     const paymentList =
-        document.getElementById("paymentList");
+        document.getElementById(
+            "paymentList"
+        );
+
+
+    const gpsValue =
+        document.getElementById(
+            "gpsValue"
+        );
+
 
     const pvCheckbox =
-        document.getElementById("pvCheckbox");
+        document.getElementById(
+            "pvCheckbox"
+        );
+
 
     const pvBox =
-        document.getElementById("pvBox");
+        document.getElementById(
+            "pvBox"
+        );
+
 
     const pvInput =
-        document.getElementById("pvInput");
+        document.getElementById(
+            "pvInput"
+        );
+
 
     const loanDetails =
-        document.getElementById("loanDetails");
+        document.getElementById(
+            "loanDetails"
+        );
+
 
     const carSum =
-        document.getElementById("carSum");
+        document.getElementById(
+            "carSum"
+        );
+
 
     const loanSum =
-        document.getElementById("loanSum");
+        document.getElementById(
+            "loanSum"
+        );
 
 
     /* =========================
@@ -930,11 +1201,12 @@
 
         return Math.round(number)
             .toLocaleString("ru-RU");
+
     }
 
 
     /* =========================
-       GET NUMBER FROM INPUT
+       PARSE NUMBER
     ========================= */
 
     function parseNumber(value) {
@@ -949,20 +1221,154 @@
 
 
     /* =========================
+       GPS CALCULATION
+    ========================= */
+
+    function calculateGPS(carPrice) {
+
+        /*
+           До 3 млн
+        */
+
+        if (carPrice <= 3000000) {
+
+            return 150000;
+
+        }
+
+
+        /*
+           3.1 - 4 млн
+        */
+
+        if (carPrice <= 4000000) {
+
+            return 200000;
+
+        }
+
+
+        /*
+           4.1 - 5 млн
+        */
+
+        if (carPrice <= 5000000) {
+
+            return 250000;
+
+        }
+
+
+        /*
+           5.1 - 6 млн
+        */
+
+        if (carPrice <= 6000000) {
+
+            return 300000;
+
+        }
+
+
+        /*
+           6.1 - 7 млн
+        */
+
+        if (carPrice <= 7000000) {
+
+            return 350000;
+
+        }
+
+
+        /*
+           7.1 - 8 млн
+        */
+
+        if (carPrice <= 8000000) {
+
+            return 400000;
+
+        }
+
+
+        /*
+           8.1 - 9 млн
+        */
+
+        if (carPrice <= 9000000) {
+
+            return 450000;
+
+        }
+
+
+        /*
+           9.1 - 10 млн
+        */
+
+        if (carPrice <= 10000000) {
+
+            return 500000;
+
+        }
+
+
+        /*
+           Выше 10 млн
+           сумма больше не растет.
+        */
+
+        return 500000;
+
+    }
+
+
+    /* =========================
+       UPDATE GPS
+    ========================= */
+
+    function updateGPS(carPrice) {
+
+        const gps =
+            calculateGPS(
+                carPrice
+            );
+
+
+        gpsValue.textContent =
+            formatNumber(gps) +
+            " ₸";
+
+    }
+
+
+    /* =========================
        PMT
     ========================= */
 
-    function calculatePayment(principal, months) {
+    function calculatePayment(
+        principal,
+        months
+    ) {
 
         const r = monthlyRate;
+
 
         return (
             principal *
             r *
-            Math.pow(1 + r, months)
-        ) /
+            Math.pow(
+                1 + r,
+                months
+            )
+        )
+        /
         (
-            Math.pow(1 + r, months) - 1
+            Math.pow(
+                1 + r,
+                months
+            ) - 1
         );
 
     }
@@ -974,17 +1380,25 @@
 
     function getCarSum() {
 
-        let value = parseNumber(
-            amountInput.value
-        );
+        let value =
+            parseNumber(
+                amountInput.value
+            );
+
 
         if (value < MIN_AMOUNT) {
+
             value = MIN_AMOUNT;
+
         }
 
+
         if (value > MAX_AMOUNT) {
+
             value = MAX_AMOUNT;
+
         }
+
 
         return value;
 
@@ -992,10 +1406,12 @@
 
 
     /* =========================
-       GET LOAN SUM
+       GET LOAN AMOUNT
     ========================= */
 
-    function getLoanAmount(carPrice) {
+    function getLoanAmount(
+        carPrice
+    ) {
 
         if (!pvCheckbox.checked) {
 
@@ -1003,27 +1419,27 @@
 
         }
 
+
         let pv =
             parseNumber(
                 pvInput.value
             );
 
-        /*
-           ПВ не может быть больше
-           стоимости автомобиля.
-        */
 
         if (pv >= carPrice) {
 
-            pv = carPrice - 1;
+            pv =
+                carPrice - 1;
 
         }
+
 
         if (pv < 0) {
 
             pv = 0;
 
         }
+
 
         return carPrice - pv;
 
@@ -1034,228 +1450,283 @@
        RENDER PAYMENTS
     ========================= */
 
-    function renderPayments(loanAmount) {
+    function renderPayments(
+        loanAmount
+    ) {
 
         paymentList.innerHTML = "";
 
 
-        terms.forEach(function(months) {
+        terms.forEach(
+            function(months) {
 
-            const payment =
-                calculatePayment(
-                    loanAmount,
-                    months
-                );
 
+                const payment =
+                    calculatePayment(
+                        loanAmount,
+                        months
+                    );
 
-            const overpayment =
-                payment * months - loanAmount;
 
+                const overpayment =
+                    payment * months -
+                    loanAmount;
 
-            /*
-               Создаем карточку
-            */
 
-            const card =
-                document.createElement("div");
+                /*
+                   CARD
+                */
 
-            card.className = "term-card";
+                const card =
+                    document.createElement(
+                        "div"
+                    );
 
 
-            /*
-               Если этот срок выбран —
-               добавляем active
-            */
+                card.className =
+                    "term-card";
 
-            if (months === selectedTerm) {
 
-                card.classList.add("active");
+                /*
+                   ACTIVE
+                */
 
-            }
+                if (
+                    months ===
+                    selectedTerm
+                ) {
 
-
-            /*
-               Основная часть карточки
-            */
-
-            const main =
-                document.createElement("div");
-
-            main.className = "term-main";
-
-
-            /*
-               Левая часть
-            */
-
-            const left =
-                document.createElement("div");
-
-            left.className = "term-left";
-
-
-            const radio =
-                document.createElement("div");
-
-            radio.className = "term-radio";
-
-
-            const termInfo =
-                document.createElement("div");
-
-
-            termInfo.innerHTML = `
-                <div class="term">
-                    ${months} месяцев
-                </div>
-
-                <div class="term-label">
-                    срок кредита
-                </div>
-            `;
-
-
-            left.appendChild(radio);
-
-            left.appendChild(termInfo);
-
-
-            /*
-               Ежемесячный платеж
-            */
-
-            const monthly =
-                document.createElement("div");
-
-            monthly.className = "monthly";
-
-
-            monthly.innerHTML = `
-                <div class="monthly-value">
-                    ${formatNumber(payment)} ₸
-                </div>
-
-                <div class="monthly-label">
-                    в месяц
-                </div>
-            `;
-
-
-            main.appendChild(left);
-
-            main.appendChild(monthly);
-
-
-            /*
-               Блок переплаты
-            */
-
-            const overpaymentWrapper =
-                document.createElement("div");
-
-            overpaymentWrapper.className =
-                "overpayment-wrapper";
-
-
-            const overpaymentHidden =
-                document.createElement("div");
-
-            overpaymentHidden.className =
-                "overpayment-hidden";
-
-
-            const overpaymentBlock =
-                document.createElement("div");
-
-            overpaymentBlock.className =
-                "overpayment";
-
-
-            overpaymentBlock.innerHTML = `
-
-                <div class="overpayment-inner">
-
-                    <div class="overpayment-title">
-                        Переплата
-                    </div>
-
-                    <div class="overpayment-value">
-                        ${formatNumber(overpayment)} ₸
-                    </div>
-
-                </div>
-
-            `;
-
-
-            overpaymentHidden.appendChild(
-                overpaymentBlock
-            );
-
-            overpaymentWrapper.appendChild(
-                overpaymentHidden
-            );
-
-
-            /*
-               Собираем карточку
-            */
-
-            card.appendChild(main);
-
-            card.appendChild(
-                overpaymentWrapper
-            );
-
-
-            /*
-               Нажатие на карточку
-            */
-
-            card.addEventListener(
-                "click",
-                function() {
-
-                    /*
-                       Если нажали на уже выбранную
-                       карточку — закрываем её.
-                    */
-
-                    if (selectedTerm === months) {
-
-                        selectedTerm = null;
-
-                    }
-
-                    /*
-                       Если нажали на другую —
-                       открываем её.
-                    */
-
-                    else {
-
-                        selectedTerm = months;
-
-                    }
-
-
-                    /*
-                       Перерисовываем карточки
-                    */
-
-                    renderPayments(
-                        getLoanAmount(
-                            getCarSum()
-                        )
+                    card.classList.add(
+                        "active"
                     );
 
                 }
-            );
 
 
-            paymentList.appendChild(card);
+                /*
+                   MAIN
+                */
 
-        });
+                const main =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                main.className =
+                    "term-main";
+
+
+                /*
+                   LEFT
+                */
+
+                const left =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                left.className =
+                    "term-left";
+
+
+                /*
+                   Никаких кругов.
+                   Только текст.
+                */
+
+                const termInfo =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                termInfo.innerHTML = `
+
+                    <div class="term">
+                        ${months} месяцев
+                    </div>
+
+                    <div class="term-label">
+                        срок кредита
+                    </div>
+
+                `;
+
+
+                left.appendChild(
+                    termInfo
+                );
+
+
+                /*
+                   MONTHLY
+                */
+
+                const monthly =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                monthly.className =
+                    "monthly";
+
+
+                monthly.innerHTML = `
+
+                    <div class="monthly-value">
+                        ${formatNumber(payment)} ₸
+                    </div>
+
+                    <div class="monthly-label">
+                        в месяц
+                    </div>
+
+                `;
+
+
+                main.appendChild(
+                    left
+                );
+
+
+                main.appendChild(
+                    monthly
+                );
+
+
+                /*
+                   OVERPAYMENT
+                */
+
+                const overpaymentWrapper =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                overpaymentWrapper.className =
+                    "overpayment-wrapper";
+
+
+                const overpaymentHidden =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                overpaymentHidden.className =
+                    "overpayment-hidden";
+
+
+                const overpaymentBlock =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                overpaymentBlock.className =
+                    "overpayment";
+
+
+                overpaymentBlock.innerHTML = `
+
+                    <div class="overpayment-inner">
+
+                        <div class="overpayment-title">
+                            Переплата
+                        </div>
+
+                        <div class="overpayment-value">
+                            ${formatNumber(overpayment)} ₸
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                overpaymentHidden.appendChild(
+                    overpaymentBlock
+                );
+
+
+                overpaymentWrapper.appendChild(
+                    overpaymentHidden
+                );
+
+
+                /*
+                   CARD BUILD
+                */
+
+                card.appendChild(
+                    main
+                );
+
+
+                card.appendChild(
+                    overpaymentWrapper
+                );
+
+
+                /*
+                   CLICK
+                */
+
+                card.addEventListener(
+                    "click",
+                    function() {
+
+
+                        /*
+                           Если нажали
+                           на открытую —
+                           закрываем.
+                        */
+
+                        if (
+                            selectedTerm ===
+                            months
+                        ) {
+
+                            selectedTerm =
+                                null;
+
+                        }
+
+
+                        /*
+                           Иначе открываем
+                           выбранную.
+                        */
+
+                        else {
+
+                            selectedTerm =
+                                months;
+
+                        }
+
+
+                        renderPayments(
+                            getLoanAmount(
+                                getCarSum()
+                            )
+                        );
+
+                    }
+                );
+
+
+                paymentList.appendChild(
+                    card
+                );
+
+            }
+        );
 
     }
 
@@ -1264,31 +1735,33 @@
        UPDATE CALCULATOR
     ========================= */
 
-    function updateCalculator(value) {
+    function updateCalculator(
+        value
+    ) {
+
+
+        value =
+            Math.max(
+                MIN_AMOUNT,
+                Math.min(
+                    MAX_AMOUNT,
+                    value
+                )
+            );
+
 
         /*
-           Ограничиваем сумму
-        */
-
-        value = Math.max(
-            MIN_AMOUNT,
-            Math.min(
-                MAX_AMOUNT,
-                value
-            )
-        );
-
-
-        /*
-           Обновляем input
+           INPUT
         */
 
         amountInput.value =
-            formatNumber(value);
+            formatNumber(
+                value
+            );
 
 
         /*
-           Обновляем slider
+           SLIDER
         */
 
         amountSlider.value =
@@ -1296,15 +1769,26 @@
 
 
         /*
-           Получаем сумму кредита
+           GPS
         */
 
-        const loanAmount =
-            getLoanAmount(value);
+        updateGPS(
+            value
+        );
 
 
         /*
-           Обновляем карточки
+           LOAN
+        */
+
+        const loanAmount =
+            getLoanAmount(
+                value
+            );
+
+
+        /*
+           PAYMENTS
         */
 
         renderPayments(
@@ -1313,10 +1797,12 @@
 
 
         /*
-           Обновляем блок ПВ
+           PV
         */
 
-        updatePV(value);
+        updatePV(
+            value
+        );
 
     }
 
@@ -1325,17 +1811,24 @@
        UPDATE PV
     ========================= */
 
-    function updatePV(carPrice) {
+    function updatePV(
+        carPrice
+    ) {
 
-        if (!pvCheckbox.checked) {
+
+        if (
+            !pvCheckbox.checked
+        ) {
 
             pvBox.classList.remove(
                 "visible"
             );
 
+
             loanDetails.classList.remove(
                 "visible"
             );
+
 
             return;
 
@@ -1345,6 +1838,7 @@
         pvBox.classList.add(
             "visible"
         );
+
 
         loanDetails.classList.add(
             "visible"
@@ -1357,15 +1851,13 @@
             );
 
 
-        /*
-           Ограничение первоначального взноса
-        */
-
         if (pv >= carPrice) {
 
-            pv = carPrice - 1;
+            pv =
+                carPrice - 1;
 
         }
+
 
         if (pv < 0) {
 
@@ -1375,7 +1867,9 @@
 
 
         pvInput.value =
-            formatNumber(pv);
+            formatNumber(
+                pv
+            );
 
 
         const loanAmount =
@@ -1383,12 +1877,16 @@
 
 
         carSum.textContent =
-            formatNumber(carPrice) +
+            formatNumber(
+                carPrice
+            ) +
             " ₸";
 
 
         loanSum.textContent =
-            formatNumber(loanAmount) +
+            formatNumber(
+                loanAmount
+            ) +
             " ₸";
 
     }
@@ -1402,12 +1900,16 @@
         "input",
         function() {
 
+
             const value =
                 Number(
                     amountSlider.value
                 );
 
-            updateCalculator(value);
+
+            updateCalculator(
+                value
+            );
 
         }
     );
@@ -1421,13 +1923,17 @@
         "input",
         function() {
 
+
             let value =
                 parseNumber(
                     amountInput.value
                 );
 
 
-            if (value > MAX_AMOUNT) {
+            if (
+                value >
+                MAX_AMOUNT
+            ) {
 
                 value =
                     MAX_AMOUNT;
@@ -1435,33 +1941,37 @@
             }
 
 
-            /*
-               Форматируем число
-            */
-
             amountInput.value =
                 value
                     ? formatNumber(value)
                     : "";
 
 
-            /*
-               Не даем калькулятору
-               уйти ниже минимума
-            */
+            if (
+                value >=
+                MIN_AMOUNT
+            ) {
 
-            if (value >= MIN_AMOUNT) {
 
                 amountSlider.value =
                     value;
 
 
-                renderPayments(
-                    getLoanAmount(value)
+                updateGPS(
+                    value
                 );
 
 
-                updatePV(value);
+                renderPayments(
+                    getLoanAmount(
+                        value
+                    )
+                );
+
+
+                updatePV(
+                    value
+                );
 
             }
 
@@ -1470,12 +1980,13 @@
 
 
     /* =========================
-       AMOUNT INPUT BLUR
+       AMOUNT BLUR
     ========================= */
 
     amountInput.addEventListener(
         "blur",
         function() {
+
 
             let value =
                 parseNumber(
@@ -1483,7 +1994,10 @@
                 );
 
 
-            if (value < MIN_AMOUNT) {
+            if (
+                value <
+                MIN_AMOUNT
+            ) {
 
                 value =
                     MIN_AMOUNT;
@@ -1491,7 +2005,10 @@
             }
 
 
-            if (value > MAX_AMOUNT) {
+            if (
+                value >
+                MAX_AMOUNT
+            ) {
 
                 value =
                     MAX_AMOUNT;
@@ -1499,7 +2016,9 @@
             }
 
 
-            updateCalculator(value);
+            updateCalculator(
+                value
+            );
 
         }
     );
@@ -1513,17 +2032,15 @@
         "change",
         function() {
 
+
             const carPrice =
                 getCarSum();
 
 
-            if (pvCheckbox.checked) {
+            if (
+                pvCheckbox.checked
+            ) {
 
-                /*
-                   Если первоначальный взнос
-                   еще не указан —
-                   ставим 0
-                */
 
                 if (
                     parseNumber(
@@ -1531,7 +2048,8 @@
                     ) === 0
                 ) {
 
-                    pvInput.value = "0";
+                    pvInput.value =
+                        "0";
 
                 }
 
@@ -1565,6 +2083,7 @@
         "input",
         function() {
 
+
             const carPrice =
                 getCarSum();
 
@@ -1575,7 +2094,9 @@
                 );
 
 
-            if (pv >= carPrice) {
+            if (
+                pv >= carPrice
+            ) {
 
                 pv =
                     carPrice - 1;
@@ -1600,18 +2121,10 @@
                 carPrice - pv;
 
 
-            /*
-               Пересчитываем платежи
-            */
-
             renderPayments(
                 loanAmount
             );
 
-
-            /*
-               Обновляем детали
-            */
 
             updatePV(
                 carPrice
@@ -1628,6 +2141,7 @@
     updateCalculator(
         6000000
     );
+
 
 </script>
 
